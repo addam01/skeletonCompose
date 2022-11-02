@@ -13,6 +13,15 @@
         android:theme="@style/Theme.SkeletonCompose"
         tools:targetApi="31">
         <activity
+            android:name=".features.OnboardingActivity"
+            android:exported="false"
+            android:label="@string/title_activity_onboarding"
+            android:theme="@style/Theme.SkeletonCompose">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".features.ListActivity"
             android:exported="false"
             android:label="@string/title_activity_list"

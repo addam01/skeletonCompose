@@ -3,6 +3,7 @@ package com.addam.skeletoncompose.features
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -94,8 +95,11 @@ fun GreetingLazyList(modifier: Modifier = Modifier,
 @Composable
 fun Greeting(name: String){
     val expanded = remember { mutableStateOf(false) }
-    val extraPadding = if (expanded.value) 48.dp else 0.dp
 
+    //You can replace this with an animateDpAsState
+//    val extraPadding = if (expanded.value) 48.dp else 0.dp
+
+    val extraPadding by animateDpAsState(if (expanded.value) 48.dp else 0.dp)
     Surface(
         color = MaterialTheme.colorScheme.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)

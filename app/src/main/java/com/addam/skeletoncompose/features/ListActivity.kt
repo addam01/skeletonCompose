@@ -74,7 +74,7 @@ fun MessageCardWithAnimation(msg: Message){
         // Add a horizontal spacing between image and column
         Spacer(modifier = Modifier.width(8.dp))
 
-        /**We Keep track if the message is expanded or not in this variable**/
+        /**We Keep track if the message is expanded or not in this variable, use remember**/
         var isExpanded by remember { mutableStateOf(false) }
 
         /**We can also add a variable to swap colors**/

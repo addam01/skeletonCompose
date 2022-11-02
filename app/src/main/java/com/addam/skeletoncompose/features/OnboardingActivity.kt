@@ -1,5 +1,6 @@
 package com.addam.skeletoncompose.features
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -7,12 +8,18 @@ import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Expand
+import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.addam.skeletoncompose.R
 import com.addam.skeletoncompose.features.ui.theme.SkeletonComposeTheme
 
 /** The state that is read or modified by multiple functions
@@ -27,6 +34,10 @@ class OnboardingActivity : ComponentActivity() {
     }
 }
 
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+    uiMode = UI_MODE_NIGHT_YES, name = "Dark")
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun OnboardingPreview() {
@@ -87,19 +98,32 @@ fun GreetingLazyList(modifier: Modifier = Modifier,
 {
     LazyColumn(modifier = modifier.padding(vertical = 4.dp)){
         items(items = names){ name ->
-            Greeting(name = name)
+//            Greeting(name = name)
+            GreetingCard(name)
         }
     }
 }
 
 @Composable
+fun GreetingCard(name: String){
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primary
+        ),
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+    ){
+        Greeting(name)
+    }
+}
+
+@Composable
 fun Greeting(name: String){
-    val expanded = remember { mutableStateOf(false) }
+    var expanded by remember { mutableStateOf(false) }
 
     //You can replace this with an animateDpAsState
 //    val extraPadding = if (expanded.value) 48.dp else 0.dp
 
-    val extraPadding by animateDpAsState(if (expanded.value) 48.dp else 0.dp)
+    val extraPadding by animateDpAsState(if (expanded) 48.dp else 0.dp)
     Surface(
         color = MaterialTheme.colorScheme.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
@@ -109,13 +133,26 @@ fun Greeting(name: String){
         ){
             Column(modifier = Modifier
                 .weight(1f)
-                .padding(bottom = extraPadding)){
+                .padding(bottom = extraPadding.coerceAtLeast(0.dp))){
 
                 Text(text = "Hello,")
-                Text(text = name)
+                Text(text = name,
+                    style = MaterialTheme.typography.headlineMedium.copy(
+                        fontWeight = FontWeight.ExtraBold
+                    ))
             }
-            ElevatedButton(onClick = {expanded.value = !expanded.value}){
-                Text(if (expanded.value) "Show less" else "Show more")
+//            ElevatedButton(onClick = {expanded.value = !expanded.value}){
+//                Text(if (expanded.value) "Show less" else "Show more")
+//            }
+            IconButton(
+                onClick = {expanded = !expanded}
+            ){
+                Icon(
+                    imageVector = if(expanded) Icons.Filled.ExpandLess else Icons.Filled.Expand,
+                    contentDescription = if (expanded){
+                        stringResource(R.string.show_more)
+                    } else stringResource(R.string.show_less)
+                )
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.addam.skeletoncompose.features
+package com.addam.skeletoncompose.features.ui.sample
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

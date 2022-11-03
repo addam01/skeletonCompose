@@ -1,4 +1,4 @@
-package com.addam.skeletoncompose.features
+package com.addam.skeletoncompose.features.ui.sample
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.addam.skeletoncompose.features
+package com.addam.skeletoncompose.features.ui.sample
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -17,9 +17,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.addam.skeletoncompose.R
 import com.addam.skeletoncompose.models.Message
 import com.addam.skeletoncompose.ui.theme.SkeletonComposeTheme
-import com.addam.skeletoncompose.R
 
 /**For preview widget need to see [PreviewMessageCard]*/
 

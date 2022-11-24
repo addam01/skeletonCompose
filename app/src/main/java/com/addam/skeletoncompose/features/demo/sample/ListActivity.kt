@@ -1,4 +1,4 @@
-package com.addam.skeletoncompose.features.ui.sample
+package com.addam.skeletoncompose.features.demo.sample
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -21,9 +21,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.addam.skeletoncompose.R
-import com.addam.skeletoncompose.features.ui.theme.SkeletonComposeTheme
 import com.addam.skeletoncompose.models.Message
 import com.addam.skeletoncompose.models.SampleData
+import com.addam.skeletoncompose.ui.theme.SkeletonComposeTheme
 
 class ListActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

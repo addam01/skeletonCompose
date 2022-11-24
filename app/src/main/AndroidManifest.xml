@@ -13,7 +13,7 @@
         android:theme="@style/Theme.SkeletonCompose"
         tools:targetApi="31">
         <activity
-            android:name=".features.OnboardingActivity"
+            android:name=".features.demo.sample.OnboardingActivity"
             android:exported="false"
             android:label="@string/title_activity_onboarding"
             android:theme="@style/Theme.SkeletonCompose">
@@ -22,7 +22,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".features.ListActivity"
+            android:name=".features.demo.sample.ListActivity"
             android:exported="false"
             android:label="@string/title_activity_list"
             android:theme="@style/Theme.SkeletonCompose">
@@ -31,7 +31,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".features.MainActivity"
+            android:name=".features.demo.sample.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.SkeletonCompose">
             <intent-filter>

@@ -1,4 +1,4 @@
-package com.addam.skeletoncompose.features.ui.sample
+package com.addam.skeletoncompose.features.demo.sample
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
@@ -20,7 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.addam.skeletoncompose.R
-import com.addam.skeletoncompose.features.ui.theme.SkeletonComposeTheme
+import com.addam.skeletoncompose.ui.theme.SkeletonComposeTheme
 
 /** The state that is read or modified by multiple functions
  * should live in a common ancestor—this process is called state hoisting

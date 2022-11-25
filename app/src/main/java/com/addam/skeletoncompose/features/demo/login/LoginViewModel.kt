@@ -1,10 +1,13 @@
 package com.addam.skeletoncompose.features.demo.login
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.addam.skeletoncompose.rest.repository.MainRepository
+import androidx.lifecycle.viewModelScope
+import com.addam.skeletoncompose.rest.api.login.LoginRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -12,7 +15,7 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val mainRepository: MainRepository
+    private val loginRepository: LoginRepository
 ): ViewModel() {
 
     val username = MutableStateFlow("")
@@ -22,5 +25,15 @@ class LoginViewModel @Inject constructor(
         input1.isNotEmpty() && input2.isNotEmpty()
     }
 
-
+    fun getLogin() = viewModelScope.launch {
+        loginRepository.getLogin().let {
+            if(it.isSuccessful){
+                it.body().let {
+                    Log.d("Login", it.toString())
+                }
+            }else{
+                Log.e("Error", it.errorBody().toString())
+            }
+        }
+    }
 }

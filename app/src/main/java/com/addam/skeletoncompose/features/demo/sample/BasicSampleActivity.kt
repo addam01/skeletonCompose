@@ -23,7 +23,7 @@ import com.addam.skeletoncompose.ui.theme.SkeletonComposeTheme
 
 /**For preview widget need to see [PreviewMessageCard]*/
 
-class MainActivity : ComponentActivity() {
+class BasicSampleActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

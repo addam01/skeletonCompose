@@ -1,9 +1,7 @@
 package com.addam.skeletoncompose.di
 
 import com.addam.skeletoncompose.BuildConfig
-import com.addam.skeletoncompose.rest.api.ApiHelper
 import com.addam.skeletoncompose.rest.api.ApiServices
-import com.addam.skeletoncompose.rest.api.login.LoginHelper
 import com.addam.skeletoncompose.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -49,12 +47,4 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideApiService(retrofit: Retrofit) = retrofit.create(ApiServices::class.java)
-
-    @Provides
-    @Singleton
-    fun provideApiHelper(apiHelper: ApiHelper): ApiHelper = apiHelper
-
-    @Provides
-    @Singleton
-    fun provideLoginHelper(loginHelper: LoginHelper): LoginHelper = loginHelper
 }

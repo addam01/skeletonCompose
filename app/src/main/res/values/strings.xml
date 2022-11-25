@@ -50,4 +50,5 @@
     <string name="login">Login</string>
     <string name="username_header">Username</string>
     <string name="password_header">Password</string>
+    <string name="BasicSample">Basic Sample Activity</string>
 </resources>

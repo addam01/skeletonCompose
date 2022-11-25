@@ -150,6 +150,7 @@ private fun LoginButton(viewModel: LoginViewModel){
     Button(
         onClick = {
             Toast.makeText(context, "Login", Toast.LENGTH_SHORT).show()
+            viewModel.getLogin()
         },
         enabled = isButtonEnabled.value
     ){
